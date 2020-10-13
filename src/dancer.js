@@ -3,8 +3,11 @@ var makeDancer = function (top, left, timeBetweenSteps) {
 
   // use jQuery to create an HTML <span> tag
   this.$node = $('<span class="dancer"></span>');
+  this.top = top;
+  this.left = left;
+  this.timeBetweenSteps = timeBetweenSteps;
 
-  this.step(timeBetweenSteps);
+  this.step();
 
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
   // this one sets the position to some random default point within the body
@@ -12,20 +15,14 @@ var makeDancer = function (top, left, timeBetweenSteps) {
 
 };
 
-makeDancer.prototype.step = function (timeBetweenSteps) {
+makeDancer.prototype.step = function () {
   // the basic dancer doesn't do anything interesting at all on each step,
   // it just schedules the next step
+  let instance = this;
 
-  //Theory is that makeDancer.step actualy is then this becomes window without a $node property
-  console.log('dancerThis:', this);
-  //this.step = function() {
-    //...
-  //}
-  //var bound = this.step.bind(this, timeBetweenSteps);
-  /*var bound = function() {
-    this.step(timeBetweenSteps)
-  }*/
-  setTimeout(this.step, timeBetweenSteps);
+  setTimeout(function() {
+    instance.step();
+  }, this.timeBetweenSteps);
 
 };
 
