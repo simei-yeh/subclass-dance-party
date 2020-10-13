@@ -18,6 +18,29 @@ describe('blinkyDancer', function() {
     expect(blinkyDancer.$node.toggle.called).to.be.true;
   });
 
+  it('should line the dancer up to 250px from top', function() {
+    blinkyDancer.lineUp();
+    expect(blinkyDancer.top).to.be.equal(250);
+  });
+
+
+  it('should move closer to the input position', function() {
+    //let newTop = this.top + (top - this.top) * 0.7;
+    blinkyDancer.attack(100,100);
+    expect(blinkyDancer.top).to.be.equal(73);
+    expect(blinkyDancer.left).to.be.equal(76);
+  });
+
+
+
+  it('should stay the same position', function() {
+    //let newTop = this.top + (top - this.top) * 0.7;
+    blinkyDancer.attack(500,500);
+    expect(blinkyDancer.top).to.be.equal(10);
+    expect(blinkyDancer.left).to.be.equal(20);
+  });
+
+
   describe('dance', function() {
     it('should call step at least once per second', function() {
       sinon.spy(blinkyDancer, 'step');
