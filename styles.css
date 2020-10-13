@@ -25,3 +25,23 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+.iron-man{
+  background-image: url('img/iron-man.jpg');
+  max-height: 100px;
+  max-width: 100px;
+}
+.spider-man{
+  background-image: url('img/spider-man.jpg');
+  max-height: 100px;
+  max-width: 100px;
+}
+.black-widow{
+  background-image: url('img/black-widow.jpg');
+  max-height: 100px;
+  max-width: 100px;
+}
+.doctor-strange{
+  background-image: url('img/doctor-strange.jpg');
+  max-height: 100px;
+  max-width: 100px;
+}
