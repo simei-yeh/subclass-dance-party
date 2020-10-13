@@ -5,6 +5,9 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  background-image: url(/img/titan\ wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -13,6 +16,7 @@ body, a:link, a:visited, a:active{
   padding:5px 12px;
   float:right;
 }
+
 .topbar{
   height:32px;
   background-color: #555;
@@ -24,16 +28,16 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
-.iron-man{
-  background-image: url('img/iron-man.jpg');
-  max-height: 100px;
-  max-width: 100px;
-}
 .spider-man{
   animation: swing ease-in-out 1s infinite alternate;
   transform-origin: center -50px;
   float:left;
 }
+
+.doctor-strange {
+  animation: distort ease-in-out 1s infinite alternate;
+}
+
 
 img {
   max-height: 100px;
@@ -45,14 +49,27 @@ img {
   100% { transform: rotate(-100deg); }
 }
 
-.black-widow{
-  background-image: url('img/black-widow.jpg');
-  max-height: 100px;
-  max-width: 100px;
+@keyframes distort {
+  0% { transform: skewX(10deg); opacity: 1; }
+  50% { opacity: .7; }
+  100% { transform: skewX(-10deg); opacity: 1; }
 }
 
-.doctor-strange{
-  background-image: url('img/doctor-strange.jpg');
-  max-height: 100px;
-  max-width: 100px;
+.speech-bubble {
+  visibility: hidden;
+  position: absolute;
+  width: 120px;
+  background-color: white;
+  text-align: center;
+  border-radius: 6px;
+}
+
+
+.black-widow img:hover + .speech-bubble {
+  visibility: visible;
+}
+
+.thanos img {
+  height: 300px;
+  width: 450px;
 }

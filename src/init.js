@@ -15,7 +15,7 @@ $(document).ready(function() {
      * A new object of the given type will be created and added
      * to the stage.
      */
-    var classes = ['IronMan', 'SpiderMan', 'DoctorStrange','BlackWidow'];
+    var classes = ['IronMan', 'SpiderMan', 'DoctorStrange','BlackWidow', 'Thanos'];
     //var classes = ['SpiderMan'];
     var dancerMakerFunctionName = classes[Math.floor(Math.random() * classes.length)];
     //var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
@@ -32,15 +32,36 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     window.dancers.push(dancer);
-    console.log(window.dancers);
+    attackThanos(dancer);
     $('body').append(dancer.$node);
 
   });
+
+  const attackThanos = function(dancer) {
+    if (dancer.constructor === Thanos) {
+      for (let i = 0; i < window.dancers.length; i++) {
+        if (window.dancers[i].constructor !== Thanos) {
+          window.dancers[i].attack(dancer.top, dancer.left);
+        }
+      }
+    }
+  }
 
   $('.lineUpButton').on('click', function() {
     for (let i = 0; i < window.dancers.length; i++) {
       window.dancers[i].lineUp();
     }
+  });
+
+  $('.breakUpButton').on('click', function() {
+    for (let i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].breakUp(
+        $("body").height() * Math.random(),
+        $("body").width() * Math.random()
+      );
+      attackThanos(window.dancers[i]);
+    }
+
   });
 
 });

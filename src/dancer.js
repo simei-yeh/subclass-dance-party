@@ -39,5 +39,29 @@ makeDancer.prototype.setPosition = function (top, left) {
 
 
 makeDancer.prototype.lineUp = function(){
-  this.setPosition(250, this.left);
+  this.top = 250;
+  this.setPosition(this.top, this.left);
+}
+
+
+makeDancer.prototype.breakUp = function(top, left){
+  this.top = top;
+  this.left = left;
+  this.setPosition(this.top, this.left);
+}
+
+
+makeDancer.prototype.attack = function(top, left){
+  let distance = Math.abs(this.top - top) + Math.abs(this.left - left);
+
+  if (distance < 800) {
+    let topMovement = (top - this.top) * 0.7;
+    let leftMovement = (left - this.left) * 0.7;
+
+    this.$node.animate({top: '+=' + topMovement + 'px', left: '+= ' + leftMovement +'px'}, {duration: 2000})
+    this.top = this.top + topMovement;
+    this.left = this.left + leftMovement;
+
+    //this.setPosition(this.top, this.left);
+  }
 }
