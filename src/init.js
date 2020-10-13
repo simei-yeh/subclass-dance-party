@@ -27,8 +27,8 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      ($("body").height()-100) * Math.random(),
+      ($("body").width()-100) * Math.random(),
       Math.random() * 1000
     );
     window.dancers.push(dancer);
@@ -61,8 +61,39 @@ $(document).ready(function() {
       );
       attackThanos(window.dancers[i]);
     }
-
   });
+
+  $('.thanosButton').on('click', function() {
+    var index = Math.floor(window.dancers.length * .75);
+    for (let i = 0; i < index; i++) {
+      var currentDancer = window.dancers[i];
+      if (currentDancer.constructor !== Thanos) {
+        if (currentDancer.constructor === SpiderMan) {
+          $('.hidden').show();
+        }
+        currentDancer.$node.fadeOut();
+      }
+    }
+  })
+
+  $('.avengersButton').on('click', function() {
+    var index = Math.floor(window.dancers.length * .75);
+    for (let i = 0; i < index; i++) {
+      var currentDancer = window.dancers[i];
+      if (currentDancer.constructor !== Thanos) {
+        if (currentDancer.constructor === SpiderMan) {
+          $('.hidden').hide();
+        }
+        currentDancer.$node.fadeIn();
+      }
+    }
+    for (let i = 0; i < window.dancers.length; i++) {
+      var currentDancer = window.dancers[i];
+      if (currentDancer.constructor === Thanos) {
+        currentDancer.$node.fadeOut();
+      }
+    }
+  })
 
 });
 

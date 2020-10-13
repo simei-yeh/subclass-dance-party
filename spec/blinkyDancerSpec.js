@@ -33,7 +33,7 @@ describe('blinkyDancer', function() {
 
 
 
-  it('should stay the same position', function() {
+  it('should stay the same', function() {
     //let newTop = this.top + (top - this.top) * 0.7;
     blinkyDancer.attack(500,500);
     expect(blinkyDancer.top).to.be.equal(10);
