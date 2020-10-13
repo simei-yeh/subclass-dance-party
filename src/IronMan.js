@@ -1,8 +1,9 @@
 var IronMan = function (top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<span class="dancer iron-man"></span>');
+  this.$node = $('<span class="dancer iron-man"><img src = "./img/iron-man.jpg"></img></span>');
   this.flewLeft = true;
   this.step();
+  this.setPosition(this.top, this.left);
 };
 
 IronMan.prototype = Object.create(makeDancer.prototype);

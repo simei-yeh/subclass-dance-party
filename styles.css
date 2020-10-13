@@ -21,7 +21,6 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
   border-radius:10px;
   position:absolute;
 }
@@ -31,15 +30,27 @@ body, a:link, a:visited, a:active{
   max-width: 100px;
 }
 .spider-man{
-  background-image: url('img/spider-man.jpg');
-  max-height: 100px;
-  max-width: 100px;
+  animation: swing ease-in-out 1s infinite alternate;
+  transform-origin: center -50px;
+  float:left;
 }
+
+img {
+  max-height: 100px;
+  max-width : 100px;
+}
+
+@keyframes swing {
+  0% { transform: rotate(100deg); }
+  100% { transform: rotate(-100deg); }
+}
+
 .black-widow{
   background-image: url('img/black-widow.jpg');
   max-height: 100px;
   max-width: 100px;
 }
+
 .doctor-strange{
   background-image: url('img/doctor-strange.jpg');
   max-height: 100px;

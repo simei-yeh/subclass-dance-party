@@ -16,6 +16,7 @@ $(document).ready(function() {
      * to the stage.
      */
     var classes = ['IronMan', 'SpiderMan', 'DoctorStrange','BlackWidow'];
+    //var classes = ['SpiderMan'];
     var dancerMakerFunctionName = classes[Math.floor(Math.random() * classes.length)];
     //var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
@@ -30,15 +31,17 @@ $(document).ready(function() {
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
+    window.dancers.push(dancer);
+    console.log(window.dancers);
     $('body').append(dancer.$node);
 
-    //$(".spider-man").animate({
-    //  left: '250px',
-    //  height: '+=150px',
-    //  width: '+=150px'
-    //});
   });
 
+  $('.lineUpButton').on('click', function() {
+    for (let i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].lineUp();
+    }
+  });
 
 });
 

@@ -1,7 +1,8 @@
 var DoctorStrange = function (top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<span class="dancer doctor-strange"></span>')
+  this.$node = $('<span class="dancer doctor-strange"><img src = "./img/doctor-strange.jpg"></img></span>')
   this.step();
+  this.setPosition(this.top, this.left);
 };
 
 DoctorStrange.prototype = Object.create(makeDancer.prototype);
